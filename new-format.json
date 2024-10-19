@@ -1,0 +1,98 @@
+{
+  "file_info": {
+    "file_name": "example.exe",
+    "file_size": "512KB",
+    "hashes": {
+      "md5": "e99a18c428cb38d5f260853678922e03",
+      "sha256": "9d5e3a4d7b8f39a14222ffb9cf34d1b17c08e0fb5a2d43af7f20e5e0e34f929e"
+    }
+  },
+  "analysis": {
+    "entropy": {
+      "overall_entropy": 7.85,
+      "sections": {
+        ".text": 6.23,
+        ".data": 2.31,
+        ".rsrc": 7.99,
+        ".reloc": 1.57
+      }
+    },
+    "imports": {
+      "dlls": [
+        {
+          "name": "kernel32.dll",
+          "functions": ["CreateFileA", "WriteFile", "ReadFile"]
+        },
+        {
+          "name": "user32.dll",
+          "functions": ["MessageBoxA"]
+        },
+        {
+          "name": "advapi32.dll",
+          "functions": ["RegOpenKeyExA", "RegSetValueExA"]
+        }
+      ],
+      "suspicious_imports": [
+        "WriteProcessMemory",
+        "CreateRemoteThread",
+        "InternetOpenUrlA"
+      ]
+    },
+    "compilation_timestamp": "2023-01-15T12:34:56Z",
+    "metadata": {
+      "machine": "x86",
+      "linker_version": "14.0",
+      "subsystem": "Windows GUI"
+    },
+    "pe_header": {
+      "address_of_entry_point": "0x401000",
+      "image_base": "0x400000"
+    },
+    "strings": {
+      "total_strings": 250,
+      "suspicious_strings": [
+        "http://malicious-site.com",
+        "%APPDATA%\\log.txt",
+        "C2_Server_IP: 192.168.1.10"
+      ]
+    },
+    "sections": [
+      {
+        "name": ".text",
+        "virtual_size": "0x1000",
+        "raw_size": "0x800",
+        "entropy": 6.23
+      },
+      {
+        "name": ".data",
+        "virtual_size": "0x600",
+        "raw_size": "0x400",
+        "entropy": 2.31
+      },
+      {
+        "name": ".rsrc",
+        "virtual_size": "0x400",
+        "raw_size": "0x200",
+        "entropy": 7.99
+      }
+    ],
+    "resources": {
+      "icon": {
+        "present": true,
+        "size": "32x32"
+      },
+      "other_resources": {
+        "manifest": false,
+        "version_info": true
+      }
+    }
+  },
+  "summary": {
+    "suspicious_activity": [
+      "High entropy in .rsrc section",
+      "Suspicious API imports: WriteProcessMemory, CreateRemoteThread",
+      "Strings indicating possible outbound connection to malicious server"
+    ],
+    "overall_risk_level": "high"
+  }
+}

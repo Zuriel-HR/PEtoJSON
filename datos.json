@@ -1,0 +1,10 @@
+{
+    "nombre": "Juan",
+    "edad": 30,
+    "ciudad": "Madrid",
+    "habilidades": [
+        "Python",
+        "PowerShell",
+        "Networking"
+    ]
+}

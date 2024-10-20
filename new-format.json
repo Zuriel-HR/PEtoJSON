@@ -8,15 +8,17 @@
     }
   },
   "analysis": {
-    "entropy": {
-      "overall_entropy": 7.85,
-      "sections": {
-        ".text": 6.23,
-        ".data": 2.31,
-        ".rsrc": 7.99,
-        ".reloc": 1.57
-      }
+    "compilation_timestamp": "2023-01-15T12:34:56Z",
+    "metadata": {
+      "machine": "x86",
+      "linker_version": "14.0",
+      "subsystem": "Windows GUI"
     },
+    "pe_header": {
+      "address_of_entry_point": "0x401000",
+      "image_base": "0x400000"
+    },
+    "entropy": 1.57,
     "imports": {
       "dlls": [
         {
@@ -38,16 +40,7 @@
         "InternetOpenUrlA"
       ]
     },
-    "compilation_timestamp": "2023-01-15T12:34:56Z",
-    "metadata": {
-      "machine": "x86",
-      "linker_version": "14.0",
-      "subsystem": "Windows GUI"
-    },
-    "pe_header": {
-      "address_of_entry_point": "0x401000",
-      "image_base": "0x400000"
-    },
+    
     "strings": {
       "total_strings": 250,
       "suspicious_strings": [
@@ -77,22 +70,8 @@
       }
     ],
     "resources": {
-      "icon": {
-        "present": true,
-        "size": "32x32"
-      },
-      "other_resources": {
-        "manifest": false,
-        "version_info": true
-      }
+            "total_size": "32",
+            "details": []
     }
-  },
-  "summary": {
-    "suspicious_activity": [
-      "High entropy in .rsrc section",
-      "Suspicious API imports: WriteProcessMemory, CreateRemoteThread",
-      "Strings indicating possible outbound connection to malicious server"
-    ],
-    "overall_risk_level": "high"
   }
 }

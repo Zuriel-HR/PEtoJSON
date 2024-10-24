@@ -40,7 +40,7 @@ def extract_json_data(file_path):
     resources = json.loads(r2.cmd("irj"))
     #metadata = json.loads(r2.cmd("iHj"))
     timestamp = r2.cmd("iHt").strip()
-    entropy_data = r2.cmd("p= entropy").strip()# float(r2.cmd("p= entropy").strip())
+    entropy_data = json.loads(r2.cmd("ij"))# float(r2.cmd("p= entropy").strip())
     
     # Procesar strings sospechosos (ejemplo básico)
     #suspicious_strings = [s['string'] for s in strings['strings'] if "http" in s['string'] or "C2" in s['string'] or "APPDATA" in s['string']]
